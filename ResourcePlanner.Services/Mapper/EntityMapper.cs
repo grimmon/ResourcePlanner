@@ -115,5 +115,22 @@ namespace ResourcePlanner.Services.Mapper
 
             return detailPage;
         }
+
+        public static List<DropdownValue> MapToDropdown(SqlDataReader reader)
+        {
+            var dropdownValues = new List<DropdownValue>();
+            while (reader.Read())
+            {
+                var value = new DropdownValue
+                {
+                    Id = reader.GetInt32("ReferenceId"),
+                    Name = reader.GetString("LabelText"),
+                    Category = reader.GetString("CodeType")
+                };
+
+                dropdownValues.Add(value);
+            }
+            return dropdownValues;
+        }
     }
 }

@@ -119,9 +119,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DropdownController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\ResourceDetailController.cs" />
+    <Compile Include="DataAccess\DropdownDataAccess.cs" />
     <Compile Include="DataAccess\MockDataAccess.cs" />
+    <Compile Include="DataAccess\MockDropdownDataAccess.cs" />
     <Compile Include="DataAccess\ResourceDataAccess.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\SqlClientExtensions.cs" />
@@ -129,6 +132,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Mapper\EntityMapper.cs" />
+    <Compile Include="Models\Dropdown.cs" />
     <Compile Include="Models\Resource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ServiceParameters.cs" />
