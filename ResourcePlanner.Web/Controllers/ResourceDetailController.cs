@@ -23,7 +23,7 @@ namespace ResourcePlanner.Services.Controllers
             {
                 StartDate = DateTime.Now.AddMonths(-1);
                 EndDate = DateTime.Now.AddMonths(1);
-                ResourceId = 38379;
+                ResourceId = 38042;
             }
             else
             {
