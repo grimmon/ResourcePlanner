@@ -28,7 +28,8 @@ namespace ResourcePlanner.Services.DataAccess
             var rand = new Random();
             var resourcePage = new ResourcePage()
             {
-                Resources = new List<Resource>()
+                Resources = new List<Resource>(),
+                TimePeriods = new List<string>()
             };
 
 
@@ -47,9 +48,14 @@ namespace ResourcePlanner.Services.DataAccess
                 int assignCount = rand.Next(5, 10);
                 for (int j = 0; j < assignCount; j++)
                 {
+                    var timeperiod = LoremIpsumGenerator.LoremIpsum(1, 1);
+                    if (!resourcePage.TimePeriods.Contains(timeperiod))
+                    {
+                        resourcePage.TimePeriods.Add(timeperiod);
+                    }
                     var assignment = new Assignment();
 
-                    assignment.TimePeriod = new Guid().ToString();
+                    assignment.TimePeriod = timeperiod;
                     assignment.ForecastHours = rand.NextDouble() * 40;
                     assignment.ActualHours = rand.NextDouble() * 40;
 
@@ -64,6 +70,11 @@ namespace ResourcePlanner.Services.DataAccess
         public DetailPage GetResourceDetail(int ResourceId, DateTime StartDate, DateTime EndDate)
         {
             var rand = new Random();
+            var detailPage = new DetailPage()
+            {
+                Projects = new List<Project>(),
+                TimePeriods = new List<string>()
+            };
             var resourceInfo = new ResourceInfo();
 
             resourceInfo.FirstName = LoremIpsumGenerator.LoremIpsum(1, 1);
@@ -77,42 +88,41 @@ namespace ResourcePlanner.Services.DataAccess
             resourceInfo.ManagerLastName = LoremIpsumGenerator.LoremIpsum(1, 1);
 
             int numProjects = rand.Next(5, 10);
-            while (reader.Read())
+            for (int i = 0; i < numProjects; i++)
             {
-                var assignment = new Assignment();
-                curr = reader.GetInt32("ProjectId");
-                if (curr != prev)
+                var project = new Project()
                 {
-                    var newResource = new Project()
+
+                    ProjectName = LoremIpsumGenerator.LoremIpsum(2, 4),
+                    WBSElement = new Guid().ToString(),
+                    Customer = LoremIpsumGenerator.LoremIpsum(2, 4),
+                    Description = LoremIpsumGenerator.LoremIpsum(4, 6),
+                    OpportunityOwnerFirstName = LoremIpsumGenerator.LoremIpsum(1, 1),
+                    OpportunityOwnerLastName = LoremIpsumGenerator.LoremIpsum(1, 1),
+                    ProjectManagerFirstName = LoremIpsumGenerator.LoremIpsum(1, 1),
+                    ProjectManagerLastName = LoremIpsumGenerator.LoremIpsum(1, 1),
+                    Assignments = new List<Assignment>()
+                };
+
+                int assignCount = rand.Next(5, 10);
+                for (int j = 0; j < assignCount; j++)
+                {
+                    var timeperiod = LoremIpsumGenerator.LoremIpsum(1, 1);
+                    if (!detailPage.TimePeriods.Contains(timeperiod))
                     {
-                        ProjectName = reader.GetNullableString("ProjectName"),
-                        WBSElement = reader.GetNullableString("WBSElement"),
-                        Customer = reader.GetNullableString("Customer"),
-                        Description = reader.GetNullableString("Description"),
-                        OpportunityOwnerFirstName = reader.GetNullableString("OpportunityOwnerFirstName"),
-                        OpportunityOwnerLastName = reader.GetNullableString("OpportunityOwnerLastName"),
-                        ProjectManagerFirstName = reader.GetNullableString("ProjectManagerFirstName"),
-                        ProjectManagerLastName = reader.GetNullableString("ProjectManagerLastName"),
-                        Assignments = new List<Assignment>()
-                    };
-                    projects.Add(curr, newResource);
+                        detailPage.TimePeriods.Add(timeperiod);
+                    }
+                    var assignment = new Assignment();
+
+                    assignment.TimePeriod = timeperiod;
+                    assignment.ForecastHours = rand.NextDouble() * 40;
+                    assignment.ActualHours = rand.NextDouble() * 40;
+
+                    project.Assignments.Add(assignment);
                 }
-                prev = curr;
 
-                assignment.TimePeriod = reader.GetString("TimePeriod");
-                assignment.ForecastHours = reader.GetDouble("ForecastHours");
-                assignment.ActualHours = reader.GetDouble("ActualHours");
-
-                projects[curr].Assignments.Add(assignment);
-
-
+                detailPage.Projects.Add(project);
             }
-
-            var detailPage = new DetailPage()
-            {
-                ResourceInfo = resourceInfo,
-                Projects = projects.Values.ToList()
-            };
 
             return detailPage;
         }
