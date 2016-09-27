@@ -39,16 +39,16 @@ namespace ResourcePlanner.Services.DataAccess
             {
                 var resource = new Resource()
                 {
-                    FirstName = LoremIpsumGenerator.LoremIpsum(1,1),
-                    LastName = LoremIpsumGenerator.LoremIpsum(1, 1),
-                    City = LoremIpsumGenerator.LoremIpsum(1, 2),
-                    Position =  LoremIpsumGenerator.LoremIpsum(2, 4),
+                    FirstName = LoremIpsumGenerator.LoremIpsum(1,1,rand),
+                    LastName = LoremIpsumGenerator.LoremIpsum(1, 1, rand),
+                    City = LoremIpsumGenerator.LoremIpsum(1, 2, rand),
+                    Position =  LoremIpsumGenerator.LoremIpsum(2, 4, rand),
                     Assignments = new List<Assignment>()
                 };
                 int assignCount = rand.Next(5, 10);
                 for (int j = 0; j < assignCount; j++)
                 {
-                    var timeperiod = LoremIpsumGenerator.LoremIpsum(1, 1);
+                    var timeperiod = LoremIpsumGenerator.LoremIpsum(1, 1, rand);
                     if (!resourcePage.TimePeriods.Contains(timeperiod))
                     {
                         resourcePage.TimePeriods.Add(timeperiod);
@@ -77,15 +77,15 @@ namespace ResourcePlanner.Services.DataAccess
             };
             var resourceInfo = new ResourceInfo();
 
-            resourceInfo.FirstName = LoremIpsumGenerator.LoremIpsum(1, 1);
-            resourceInfo.LastName = LoremIpsumGenerator.LoremIpsum(1, 1);
-            resourceInfo.Practice = LoremIpsumGenerator.LoremIpsum(1, 3);
-            resourceInfo.OrgUnit = LoremIpsumGenerator.LoremIpsum(1, 2);
-            resourceInfo.Market = LoremIpsumGenerator.LoremIpsum(1, 2);
-            resourceInfo.City = LoremIpsumGenerator.LoremIpsum(1, 2);
-            resourceInfo.Position = LoremIpsumGenerator.LoremIpsum(2, 4);
-            resourceInfo.ManagerFirstName = LoremIpsumGenerator.LoremIpsum(1, 1);
-            resourceInfo.ManagerLastName = LoremIpsumGenerator.LoremIpsum(1, 1);
+            resourceInfo.FirstName = LoremIpsumGenerator.LoremIpsum(1, 1, rand);
+            resourceInfo.LastName = LoremIpsumGenerator.LoremIpsum(1, 1, rand);
+            resourceInfo.Practice = LoremIpsumGenerator.LoremIpsum(1, 3, rand);
+            resourceInfo.OrgUnit = LoremIpsumGenerator.LoremIpsum(1, 2, rand);
+            resourceInfo.Market = LoremIpsumGenerator.LoremIpsum(1, 2, rand);
+            resourceInfo.City = LoremIpsumGenerator.LoremIpsum(1, 2, rand);
+            resourceInfo.Position = LoremIpsumGenerator.LoremIpsum(2, 4, rand);
+            resourceInfo.ManagerFirstName = LoremIpsumGenerator.LoremIpsum(1, 1, rand);
+            resourceInfo.ManagerLastName = LoremIpsumGenerator.LoremIpsum(1, 1, rand);
 
             int numProjects = rand.Next(5, 10);
             for (int i = 0; i < numProjects; i++)
@@ -93,21 +93,21 @@ namespace ResourcePlanner.Services.DataAccess
                 var project = new Project()
                 {
 
-                    ProjectName = LoremIpsumGenerator.LoremIpsum(2, 4),
+                    ProjectName = LoremIpsumGenerator.LoremIpsum(2, 4, rand),
                     WBSElement = new Guid().ToString(),
-                    Customer = LoremIpsumGenerator.LoremIpsum(2, 4),
-                    Description = LoremIpsumGenerator.LoremIpsum(4, 6),
-                    OpportunityOwnerFirstName = LoremIpsumGenerator.LoremIpsum(1, 1),
-                    OpportunityOwnerLastName = LoremIpsumGenerator.LoremIpsum(1, 1),
-                    ProjectManagerFirstName = LoremIpsumGenerator.LoremIpsum(1, 1),
-                    ProjectManagerLastName = LoremIpsumGenerator.LoremIpsum(1, 1),
+                    Customer = LoremIpsumGenerator.LoremIpsum(2, 4, rand),
+                    Description = LoremIpsumGenerator.LoremIpsum(4, 6, rand),
+                    OpportunityOwnerFirstName = LoremIpsumGenerator.LoremIpsum(1, 1, rand),
+                    OpportunityOwnerLastName = LoremIpsumGenerator.LoremIpsum(1, 1, rand),
+                    ProjectManagerFirstName = LoremIpsumGenerator.LoremIpsum(1, 1, rand),
+                    ProjectManagerLastName = LoremIpsumGenerator.LoremIpsum(1, 1, rand),
                     Assignments = new List<Assignment>()
                 };
 
                 int assignCount = rand.Next(5, 10);
                 for (int j = 0; j < assignCount; j++)
                 {
-                    var timeperiod = LoremIpsumGenerator.LoremIpsum(1, 1);
+                    var timeperiod = LoremIpsumGenerator.LoremIpsum(1, 1, rand);
                     if (!detailPage.TimePeriods.Contains(timeperiod))
                     {
                         detailPage.TimePeriods.Add(timeperiod);

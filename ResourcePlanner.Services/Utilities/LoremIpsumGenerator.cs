@@ -8,15 +8,14 @@ namespace ResourcePlanner.Services.Utilities
 {
     public static class LoremIpsumGenerator
     {
-        public static string LoremIpsum(int minWords, int maxWords)
+        public static string LoremIpsum(int minWords, int maxWords, Random rand)
         {
 
             var words = new[]{"lorem", "ipsum", "dolor", "sit", "amet", "consectetuer",
             "adipiscing", "elit", "sed", "diam", "nonummy", "nibh", "euismod",
             "tincidunt", "ut", "laoreet", "dolore", "magna", "aliquam", "erat"};
 
-            var rand = new Random();
-            int numWords = rand.Next(maxWords - minWords) + minWords + 1;
+            int numWords = rand.Next(maxWords - minWords) + minWords;
 
             StringBuilder result = new StringBuilder();
             for (int w = 0; w < numWords; w++)

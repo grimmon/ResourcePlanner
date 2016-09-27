@@ -30,7 +30,7 @@ namespace ResourcePlanner.Services.Controllers
                 EndDate = EndDateParam.Value;
             }
 
-            var access = new ResourceDataAccess(ConfigurationManager.ConnectionStrings["RPDBConnectionString"].ConnectionString,
+            var access = new MockDataAccess(ConfigurationManager.ConnectionStrings["RPDBConnectionString"].ConnectionString,
                                                 Int32.Parse(ConfigurationManager.AppSettings["DBTimeout"]));
             ResourcePage resourcePage;
 
