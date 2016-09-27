@@ -30,8 +30,15 @@ namespace ResourcePlanner.Services.Controllers
                 EndDate = EndDateParam.Value;
             }
 
+            
+#if Mock
             var access = new MockDataAccess(ConfigurationManager.ConnectionStrings["RPDBConnectionString"].ConnectionString,
                                                 Int32.Parse(ConfigurationManager.AppSettings["DBTimeout"]));
+#else
+            var access = new ResourceDataAccess(ConfigurationManager.ConnectionStrings["RPDBConnectionString"].ConnectionString,
+                                                Int32.Parse(ConfigurationManager.AppSettings["DBTimeout"]));
+#endif
+
             ResourcePage resourcePage;
 
             try
