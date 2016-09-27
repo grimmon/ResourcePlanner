@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="b9522af1-1659-4ce0-8ec4-2eb787b44ee1" ChangeDateTime="09/20/2016 14:02:10">
+    <Property Name="ElementName" Value="[dbo].[Resource].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Resource]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ResourceId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6b9c6799-0f9f-4252-97cd-8c81e192fe56" ChangeDateTime="09/20/2016 14:06:41">
+    <Property Name="ElementName" Value="[dbo].[Resource].[Position]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Resource]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PositionCd" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e0a99d69-03ce-4a59-b7fd-4cb9b16ce0b0" ChangeDateTime="09/20/2016 14:09:41">
+    <Property Name="ElementName" Value="[dbo].[Resource].[Terminat]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Resource]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Status" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5f4a8cdc-b086-42b5-88ff-b6053f18ac4c" ChangeDateTime="09/20/2016 14:14:04">
+    <Property Name="ElementName" Value="[dbo].[Project].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Project]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProjectId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="988a0899-872f-49b2-87b6-8bccc59faf74" ChangeDateTime="09/20/2016 14:19:29">
+    <Property Name="ElementName" Value="[dbo].[Assignments].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Assignments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AssignmentId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b219854f-2d8a-46a7-96d1-ea22ecfc3972" ChangeDateTime="09/20/2016 14:21:50">
+    <Property Name="ElementName" Value="[dbo].[Assignments].[isSoftBooked]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Assignments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsSoftBooked" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f4bd2036-2009-425d-a610-97bd18c94509" ChangeDateTime="09/20/2016 14:21:53">
+    <Property Name="ElementName" Value="[dbo].[Assignments].[isForc]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Assignments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsForc" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="da2b2d1e-c7bc-4c2f-8b6f-f79bf00b88bd" ChangeDateTime="09/20/2016 14:27:01">
+    <Property Name="ElementName" Value="[dbo].[Assignments].[StartDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Assignments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ResourceId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e2c9f056-04e5-4756-8a3d-3379f98cca7f" ChangeDateTime="09/20/2016 14:27:12">
+    <Property Name="ElementName" Value="[dbo].[Assignments].[EndDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Assignments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ProjectId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8c332bd0-01d8-4d96-8f38-151f26ace1ce" ChangeDateTime="09/20/2016 14:31:12">
+    <Property Name="ElementName" Value="[dbo].[Project].[CustomerId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Project]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CustomerName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4a92bd13-4fd4-4f30-9607-ed7087c4dbb6" ChangeDateTime="09/20/2016 14:57:59">
+    <Property Name="ElementName" Value="[dbo].[ReferenceCodeSet].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ReferenceCodeSet]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ReferenceId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3f0dba26-79c8-4f96-b04e-304347ece236" ChangeDateTime="09/20/2016 15:01:06">
+    <Property Name="ElementName" Value="[dbo].[Resource].[SubPracticeCd]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Resource]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PracticeCd" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="57a6777e-d614-4e7e-ba2d-eb50a8377259" ChangeDateTime="09/20/2016 15:52:47">
+    <Property Name="ElementName" Value="[dbo].[Project].[CustomerName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Project]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CustomerCd" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b06e13d6-005e-4dda-a78f-2a39bebb133b" ChangeDateTime="09/21/2016 19:21:35">
+    <Property Name="ElementName" Value="[dbo].[Assignments].[Status]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Assignments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="StartDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bf85ee79-ca7b-413c-9dfd-333c9caadbee" ChangeDateTime="09/21/2016 19:21:39">
+    <Property Name="ElementName" Value="[dbo].[Assignments].[Type]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Assignments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EndDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="35b58bf8-eb35-42e3-bc0f-fdf03d90182a" ChangeDateTime="09/22/2016 13:58:14">
+    <Property Name="ElementName" Value="[dbo].[Assignments].[Status ]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Assignments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BillableType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c646993a-f02f-4b67-8e51-a2ab924fad09" ChangeDateTime="09/22/2016 13:58:51">
+    <Property Name="ElementName" Value="[dbo].[Assignments].[BillableType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Assignments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="HourType" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="628f8fdb-1183-4e7d-9335-185c968ca31c" ChangeDateTime="09/22/2016 13:58:59">
+    <Property Name="ElementName" Value="[dbo].[Assignments].[Type]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Assignments]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Status" />
+  </Operation>
+</Operations>
