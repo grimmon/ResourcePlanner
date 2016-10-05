@@ -16,7 +16,7 @@ namespace ResourcePlanner.Services.Controllers
     public class ResourceController : ApiController
     {
         [HttpGet]
-        public async Task<IHttpActionResult> Get(int pageSize, int pageNum, TimeAggregation agg= TimeAggregation.Weekly, SortOrder sort = SortOrder.LastName,  string city = null, string market = null, string region = null, string orgUnit = null, string practice = null, string position = null, DateTime? StartDateParam = null, DateTime? EndDateParam = null)
+        public async Task<IHttpActionResult> Get(int pageSize, int pageNum, TimeAggregation agg = TimeAggregation.Weekly, SortOrder sort = SortOrder.LastName, string city = null, string market = null, string region = null, string orgUnit = null, string practice = null, string position = null, DateTime? StartDateParam = null, DateTime? EndDateParam = null)
         {
             DateTime StartDate;
             DateTime EndDate;
@@ -46,8 +46,8 @@ namespace ResourcePlanner.Services.Controllers
             pageParams.StartDate = StartDate;
             pageParams.EndDate = EndDate;
 
-            
-            
+
+
 #if Mock
             var access = new MockDataAccess(ConfigurationManager.ConnectionStrings["RPDBConnectionString"].ConnectionString,
                                                 Int32.Parse(ConfigurationManager.AppSettings["DBTimeout"]));
