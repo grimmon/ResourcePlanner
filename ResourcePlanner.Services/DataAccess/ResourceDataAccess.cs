@@ -59,7 +59,7 @@ namespace ResourcePlanner.Services.DataAccess
             var SortOrderParam = AdoUtility.CreateSqlParameter("SortOrderParam", SqlDbType.VarChar, pageParams.Sort.ToString());
 
 
-            return new SqlParameter[] { AggParam, CityParam, OrgUnitParam, RegionParam, MarketParam,
+            return new SqlParameter[] { AggParam, SortOrderParam, CityParam, OrgUnitParam, RegionParam, MarketParam,
                 PracticeParam, PositionParam, StartDateParam, EndDateParam };
         }
 

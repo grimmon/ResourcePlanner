@@ -16,7 +16,7 @@ namespace ResourcePlanner.Services.Controllers
     public class ResourceController : ApiController
     {
         [HttpGet]
-        public async Task<IHttpActionResult> Get(int pageSize, int pageNum, TimeAggregation agg= TimeAggregation.Weekly, SortOrder sort = SortOrder.LastName,  string city = "", string market = "", string region = "", string orgUnit = "", string practice = "", string position = "", DateTime? StartDateParam = null, DateTime? EndDateParam = null)
+        public async Task<IHttpActionResult> Get(int pageSize, int pageNum, TimeAggregation agg= TimeAggregation.Weekly, SortOrder sort = SortOrder.LastName,  string city = null, string market = null, string region = null, string orgUnit = null, string practice = null, string position = null, DateTime? StartDateParam = null, DateTime? EndDateParam = null)
         {
             DateTime StartDate;
             DateTime EndDate;
@@ -31,22 +31,22 @@ namespace ResourcePlanner.Services.Controllers
                 EndDate = EndDateParam.Value;
             }
 
-            var pageParams = new ResourceQuery()
-            {
-                Aggregation = agg,
-                Sort = sort,
-                PageSize = pageSize,
-                PageNum = pageNum,
-                City = Array.ConvertAll(city.Split(','), s=> int.Parse(s)),
-                OrgUnit = Array.ConvertAll(orgUnit.Split(','), s => int.Parse(s)),
-                Market = Array.ConvertAll(market.Split(','), s => int.Parse(s)),
-                Region = Array.ConvertAll(region.Split(','), s => int.Parse(s)),
-                Position = Array.ConvertAll(position.Split(','), s => int.Parse(s)),
-                Practice = Array.ConvertAll(practice.Split(','), s => int.Parse(s)),
-                StartDate = StartDate,
-                EndDate = EndDate
+            var pageParams = new ResourceQuery();
 
-            };
+            pageParams.Aggregation = agg;
+            pageParams.Sort = sort;
+            pageParams.PageSize = pageSize;
+            pageParams.PageNum = pageNum;
+            pageParams.City = city != null ? Array.ConvertAll(city.Split(','), s => int.Parse(s)) : new int[1];
+            pageParams.OrgUnit = orgUnit != null ? Array.ConvertAll(orgUnit.Split(','), s => int.Parse(s)) : new int[1];
+            pageParams.Market = market != null ? Array.ConvertAll(market.Split(','), s => int.Parse(s)) : new int[1];
+            pageParams.Region = region != null ? Array.ConvertAll(region.Split(','), s => int.Parse(s)) : new int[1];
+            pageParams.Position = position != null ? Array.ConvertAll(position.Split(','), s => int.Parse(s)) : new int[1];
+            pageParams.Practice = practice != null ? Array.ConvertAll(practice.Split(','), s => int.Parse(s)) : new int[1];
+            pageParams.StartDate = StartDate;
+            pageParams.EndDate = EndDate;
+
+            
             
 #if Mock
             var access = new MockDataAccess(ConfigurationManager.ConnectionStrings["RPDBConnectionString"].ConnectionString,
