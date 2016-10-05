@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using static ResourcePlanner.Services.Enums.Enums;
 
 namespace ResourcePlanner.Services.Controllers
 {
@@ -15,7 +16,7 @@ namespace ResourcePlanner.Services.Controllers
     public class ResourceController : ApiController
     {
         [HttpGet]
-        public async Task<IHttpActionResult> Get(DateTime? StartDateParam = null, DateTime? EndDateParam = null)
+        public async Task<IHttpActionResult> Get(int pageSize, int pageNum, TimeAggregation agg= TimeAggregation.Weekly, SortOrder sort = SortOrder.LastName,  string city = "", string market = "", string region = "", string orgUnit = "", string practice = "", string position = "", DateTime? StartDateParam = null, DateTime? EndDateParam = null)
         {
             DateTime StartDate;
             DateTime EndDate;
@@ -30,6 +31,22 @@ namespace ResourcePlanner.Services.Controllers
                 EndDate = EndDateParam.Value;
             }
 
+            var pageParams = new ResourceQuery()
+            {
+                Aggregation = agg,
+                Sort = sort,
+                PageSize = pageSize,
+                PageNum = pageNum,
+                City = Array.ConvertAll(city.Split(','), s=> int.Parse(s)),
+                OrgUnit = Array.ConvertAll(orgUnit.Split(','), s => int.Parse(s)),
+                Market = Array.ConvertAll(market.Split(','), s => int.Parse(s)),
+                Region = Array.ConvertAll(region.Split(','), s => int.Parse(s)),
+                Position = Array.ConvertAll(position.Split(','), s => int.Parse(s)),
+                Practice = Array.ConvertAll(practice.Split(','), s => int.Parse(s)),
+                StartDate = StartDate,
+                EndDate = EndDate
+
+            };
             
 #if Mock
             var access = new MockDataAccess(ConfigurationManager.ConnectionStrings["RPDBConnectionString"].ConnectionString,
@@ -43,7 +60,7 @@ namespace ResourcePlanner.Services.Controllers
 
             try
             {
-                resourcePage = access.GetResourcePage(StartDate, EndDate);
+                resourcePage = access.GetResourcePage(pageParams);
             }
             catch (Exception ex)
             {

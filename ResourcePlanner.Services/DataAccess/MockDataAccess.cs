@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ResourcePlanner.Services.Models;
-using ResourcePlanner.Services.Utilities;
+using ResourcePlanner.Core.Utilities;
 using ResourcePlanner.Services.Mapper;
 using System.Data;
 using System.Data.SqlClient;
@@ -22,7 +22,7 @@ namespace ResourcePlanner.Services.DataAccess
         }
 
 
-        public ResourcePage GetResourcePage(DateTime StartDate, DateTime EndDate)
+        public ResourcePage GetResourcePage(ResourceQuery pageParams)
         {
 
             var rand = new Random();

@@ -1,6 +1,6 @@
 ﻿using ResourcePlanner.Services.Mapper;
 using ResourcePlanner.Services.Models;
-using ResourcePlanner.Services.Utilities;
+using ResourcePlanner.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ResourcePlanner.Services.Extensions;
+using ResourcePlanner.Core.Extensions;
 using ResourcePlanner.Services.Models;
 using System.Data.SqlClient;
 

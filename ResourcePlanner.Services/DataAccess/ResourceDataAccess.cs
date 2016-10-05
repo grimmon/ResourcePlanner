@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ResourcePlanner.Services.Models;
-using ResourcePlanner.Services.Utilities;
+using ResourcePlanner.Core.Utilities;
 using ResourcePlanner.Services.Mapper;
 using System.Data;
 using System.Data.SqlClient;
@@ -22,7 +22,7 @@ namespace ResourcePlanner.Services.DataAccess
         }
 
 
-        public ResourcePage GetResourcePage(DateTime StartDate, DateTime EndDate)
+        public ResourcePage GetResourcePage(ResourceQuery pageParams)
         {
 
             var returnValue = AdoUtility.ExecuteQuery(reader => EntityMapper.MapToResourcePage(reader),
@@ -30,7 +30,7 @@ namespace ResourcePlanner.Services.DataAccess
                 @"rpdb.ResourcePageSelect",
                 CommandType.StoredProcedure,
                 _timeout,
-                CreateResourcePageParamArray(StartDate, EndDate));
+                CreateResourcePageParamArray(pageParams));
             return returnValue;
         }
 
@@ -45,12 +45,22 @@ namespace ResourcePlanner.Services.DataAccess
             return returnValue;
         }
 
-        private SqlParameter[] CreateResourcePageParamArray(DateTime StartDate, DateTime EndDate)
+        private SqlParameter[] CreateResourcePageParamArray(ResourceQuery pageParams)
         {
-            var StartDateParam = AdoUtility.CreateSqlParameter("StartDateParam", SqlDbType.Date, StartDate);
-            var EndDateParam = AdoUtility.CreateSqlParameter("EndDateParam", SqlDbType.Date, EndDate);
+            var AggParam       = AdoUtility.CreateSqlParameter("AggParam", SqlDbType.VarChar, pageParams.Aggregation.ToString());
+            var CityParam      = AdoUtility.CreateSqlParameter("CityParam", SqlDbType.Int, pageParams.City[0]);
+            var OrgUnitParam   = AdoUtility.CreateSqlParameter("OrgUnitParam", SqlDbType.Int, pageParams.OrgUnit[0]);
+            var RegionParam    = AdoUtility.CreateSqlParameter("RegionParam", SqlDbType.Int, pageParams.Region[0]);
+            var MarketParam    = AdoUtility.CreateSqlParameter("MarketParam", SqlDbType.Int, pageParams.Market[0]);
+            var PracticeParam  = AdoUtility.CreateSqlParameter("PracticeParam", SqlDbType.Int, pageParams.Practice[0]);
+            var PositionParam  = AdoUtility.CreateSqlParameter("PositionParam", SqlDbType.Int, pageParams.Position[0]);
+            var StartDateParam = AdoUtility.CreateSqlParameter("StartDateParam", SqlDbType.Date, pageParams.StartDate);
+            var EndDateParam   = AdoUtility.CreateSqlParameter("EndDateParam", SqlDbType.Date, pageParams.EndDate);
+            var SortOrderParam = AdoUtility.CreateSqlParameter("SortOrderParam", SqlDbType.VarChar, pageParams.Sort.ToString());
 
-            return new SqlParameter[] { StartDateParam, EndDateParam };
+
+            return new SqlParameter[] { AggParam, CityParam, OrgUnitParam, RegionParam, MarketParam,
+                PracticeParam, PositionParam, StartDateParam, EndDateParam };
         }
 
         private SqlParameter[] CreateResourceDetailParamArray(int ResourceId, DateTime StartDate, DateTime EndDate)

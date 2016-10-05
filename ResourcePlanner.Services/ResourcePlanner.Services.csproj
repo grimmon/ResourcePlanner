@@ -128,8 +128,7 @@
     <Compile Include="DataAccess\MockDataAccess.cs" />
     <Compile Include="DataAccess\MockDropdownDataAccess.cs" />
     <Compile Include="DataAccess\ResourceDataAccess.cs" />
-    <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Extensions\SqlClientExtensions.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -138,8 +137,6 @@
     <Compile Include="Models\Resource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ServiceParameters.cs" />
-    <Compile Include="Utilities\AdoUtility.cs" />
-    <Compile Include="Utilities\LoremIpsumGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -160,6 +157,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ResourcePlanner.Core\ResourcePlanner.Core.csproj">
+      <Project>{0cf03612-a333-4f8d-a3b3-d8bda0ed1659}</Project>
+      <Name>ResourcePlanner.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

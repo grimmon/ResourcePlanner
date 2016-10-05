@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using static ResourcePlanner.Services.Enums.Enums;
 
 namespace ResourcePlanner.Services.Models
 {
@@ -68,6 +69,22 @@ namespace ResourcePlanner.Services.Models
         public string ProjectManagerLastName { get; set; }
         public List<Assignment> Assignments { get; set; }
 
+    }
+
+    public class ResourceQuery
+    {
+        public TimeAggregation Aggregation { get; set; }
+        public SortOrder Sort { get; set; }
+        public int PageSize { get; set; }
+        public int PageNum { get; set; }
+        public int[] City { get; set; }
+        public int[] OrgUnit { get; set; }
+        public int[] Region { get; set; }
+        public int[] Market { get; set; }
+        public int[] Practice { get; set; }
+        public int[] Position { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 
 
